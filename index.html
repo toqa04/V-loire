@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Véloire </title>
+    <link rel="icon" class="logo" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        
+
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffffff 10%, #b3a67f 40%, #6e5d24 50%);;
+            
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 30%,  #7c745b 40%, #53461c 60%);
+            color: white;
+            padding: 25px 50px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+       
+        .brand-logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #c5a746;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap:px;
+            font-size: 2rem;
+        
+            z-index: 2;
+        }
+        .brand-logo span
+        {
+            position: relative;
+            left: -20px;
+
+        }
+        .brand-logo img
+        {
+
+            height: 90px;
+            width: 70px;
+            position: static;
+            z-index: 1;
+            
+
+        }
+        .brand-logo:hover {
+        animation: colorWave 1.5s infinite alternate;
+    }
+
+    @keyframes colorWave {
+        0% { color: #5e4c13; }
+        50% { color: #d4af37; }
+        100% { color: #b88b4a; }
+    }
+
+        .icons {
+            display: flex;
+            gap: 25px;
+            font-size: 1.2rem;
+        }
+
+        .icons i {
+            cursor: pointer;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .user-profile::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #d4af37;
+            border-radius: 50%;
+            top: -3px;
+            right: -8px;
+        }
+
+        .products {
+            padding: 40px 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .product img {
+            width: 100px;
+            border-radius: 10px;
+            transition: opacity 0.3s ease-in-out;
+
+        }
+
+        
+        .product img:first-child {
+           
+          
+           object-fit: cover; 
+           position: absolute;
+             top: 17px;
+        
+             
+           opacity: 1;
+          
+       }
+        .product img:last-child {
+           
+            
+            object-fit: cover; 
+            position: absolute;
+              top: 0;
+              left: -100px;
+              z-index: -1;
+            opacity: 0;
+           
+        }
+
+        .product:hover img:first-child {
+            opacity: 0;
+        }
+
+        .product:hover img:last-child {
+            opacity: 1;
+        }
+
+        .product-info {
+            padding-top: 10px;
+        }
+
+        .product h3 {
+            font-size: 1.1rem;
+            margin: 8px 0;
+        }
+
+        .product p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .buy-button {
+            background: #d4af37;
+            border: none;
+            padding: 8px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .buy-button:hover {
+            background: #b88b4a;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        @media (max-width: 1200px) {
+            .product-grid {
+                grid-template-columns: repeat(5, 1fr); 
+            }
+        }
+
+        @media (max-width: 992px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr); 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr); 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+
+            .product {
+                padding: 10px;
+            }
+
+            .product h3 {
+                font-size: 1rem;
+            }
+
+            .buy-button {
+                padding: 6px;
+                font-size: 0.8rem;
+            }
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="brand-logo">   <img src="images/header.png" alt="logo"><span>éloire</span></div>
+            <div class="icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-shopping-cart"></i>
+                <div class="user-profile">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section id="products" class="products">
+        <div class="product-grid">
+            <div class="product">
+                <img src="images/product1.jpg" alt="Product 1">
+                <img src="images/product1-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Elegant Gold & Mother-of-Pearl Cuff Bracelet</h3>
+                    <p> 1.50 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product2.jpg" alt="Product 2">
+                <img src="images/product2-hover.jpg" alt="Product 2 Hover">
+                <div class="product-info">
+                    <h3>Modern Black Onyx Semi-Eternity Ring</h3>
+                    <p>2.40 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product3.jpg" alt="Product 1">
+                <img src="images/product3-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Elegant White French Design Shirt</h3>
+                    <p>20.79 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product4.jpg" alt="Product 1">
+                <img src="images/product4-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Elegant Women's Classic Design Watch</h3>
+                    <p>7 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product5.jpg" alt="Product 1">
+                <img src="images/product5-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Cute Cat Peek-A-Boo Hoodie</h3>
+                    <p>12 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product6.jpg" alt="Product 1">
+                <img src="images/product6-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>MYSEVENDAY® Natural DIY Nail Set (30 Pieces)</h3>
+                    <p>1.70 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product7.jpg" alt="Product 1">
+                <img src="images/product7-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Ocean-Inspired Starfish Resin Trinket Dishes & Decor</h3>
+                    <p>5.15 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product8.jpg" alt="Product 1">
+                <img src="images/product8-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Men's Corduroy Hooded Shirt Jacket</h3>
+                    <p>7.89 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product9.jpg" alt="Product 1">
+                <img src="images/product9-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Men's "It's Not That Serious" Graphic Hoodie</h3>
+                    <p>4.90 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product10.jpg" alt="Product 1">
+                <img src="images/product10-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Unisex Cat Graphic Raglan Hoodie with Text Details</h3>
+                    <p>7 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product11.jpg" alt="Product 1">
+                <img src="images/product11-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Men's Color Block Pattern Sneakers</h3>
+                    <p>20.37 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product12.jpg" alt="Product 1">
+                <img src="images/product12-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>JLCH Black Messenger Bag with Patches</h3>
+                    <p>15 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product13.jpg" alt="Product 1">
+                <img src="images/product13-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Titanium Double Tassel Triangle Silver Pendant Adjustable Chain Necklace</h3>
+                    <p>3.50 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product14.jpg" alt="Product 1">
+                <img src="images/product14-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Black Spider Web Graphic Zip-Up Hoodie</h3>
+                    <p>4 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product15.jpg" alt="Product 1">
+                <img src="images/product15-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Vintage Women's Rectangular Dial Watch </h3>
+                    <p>5 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product16.jpg" alt="Product 1">
+                <img src="images/product16-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Women's Worm Lace-Up Low Top Sneakers</h3>
+                    <p>17.50 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product17.jpg" alt="Product 1">
+                <img src="images/product17-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3> High Waist Pleated Casual Solid Color Everyday Black Skirt</h3>
+                    <p>22 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product18.jpg" alt="Product 1">
+                <img src="images/product18-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3> Imaging Human Figure Print Hoodie</h3>
+                    <p>6.80 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product19.jpg" alt="Product 1">
+                <img src="images/product19-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>
+                        17km Silver Ring Set with Crystal Accents</h3>
+                    <p>1.70 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product20.jpg" alt="Product 1">
+                <img src="images/product20-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>ROMWE Women's Cute Cloud Print Button Up Cardigan</h3>
+                    <p>7.4 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product21.jpg" alt="Product 1">
+                <img src="images/product21-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Delicate Silver Bow Pendant Necklace</h3>
+                    <p> 1.70 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product22.jpg" alt="Product 1">
+                <img src="images/product22-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3> Portrait Print Drawstring Hoodie Sweatshirt</h3>
+                    <p>7.30 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product23.jpg" alt="Product 1">
+                <img src="images/product23-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Women's Chunky Platform Sneakers with Textured Accents</h3>
+                    <p>25 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product24.jpg" alt="Product 1">
+                <img src="images/product24-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Dainty Silver Bow Bracelet</h3>
+                    <p>0.98 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product25.jpg" alt="Product 1">
+                <img src="images/product25-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>KL Ready Stock Desktop Storage Rack</h3>
+                    <p>23 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product26.jpg" alt="Product 1">
+                <img src="images/product26-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>"Snack Time" Bunny Graphic Canvas Messenger Bag</h3>
+                    <p>4.50 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product27.jpg" alt="Product 1">
+                <img src="images/product27-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Southland & Kangaroo Small Flap Wallet</h3>
+                    <p>1.70 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product28.jpg" alt="Product 1">
+                <img src="images/product28-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Simple Alloy Headband with Pearl, Flower & Rhinestone Decor</h3>
+                    <p>0.90 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/product29.jpg" alt="Product 1">
+                <img src="images/product29-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3>Cute Cloud "Keep Happiness" Eyeglasses Case with Cleaning Clo</h3>
+                    <p>3.20 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+                <div class="product">
+                <img src="images/product30.jpg" alt="Product 1">
+                <img src="images/product30-hover.jpg" alt="Product 1 Hover">
+                <div class="product-info">
+                    <h3> LED Digital Alarm Clock</h3>
+                    <p>4 JD</p>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+      
+             
+          
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy;2025 by toqa alzoubi . All rights reserved.</p>
+    </footer>
+</body>
+</html>
